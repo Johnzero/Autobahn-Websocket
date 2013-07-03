@@ -1,12 +1,12 @@
 $(document).ready(function() {
     $("#webcam").scriptcam({
-        width: 340,
+        width: 320,
         path:'/static/ScriptCam/',
-        height: 280,
+        height: 240,
         onWebcamReady:onWebcamReady,
         onError:onError,
         showMicrophoneErrors:false,
-        cornerRadius:40,
+        cornerRadius:0,
         onPictureAsBase64:base64_tofield_and_image
     });
 })
@@ -34,4 +34,10 @@ $(document).ready(function() {
 					$('#cameraNames').append( $('<option></option>').val(index).html(text) )
 				}); 
 				$('#cameraNames').val(camera);
+                var frame = $.scriptcam.getFrameAsBase64();
+                img.send(frame);
 			}
+            function sendFrame () {
+                var frame = $.scriptcam.getFrameAsBase64();
+                img.send(frame);
+            }

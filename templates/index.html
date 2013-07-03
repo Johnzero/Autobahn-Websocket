@@ -17,6 +17,13 @@
 	<link rel="stylesheet" type="text/css" href="/static/HubSpot Messenger/css/messenger.css">
 	<link rel="stylesheet" type="text/css" href="/static/HubSpot Messenger/css/messenger-theme-future.css">
 	<script type="text/javascript" src="/static/HubSpot Messenger/js/messenger.min.js"></script>
+	<style type="text/css">
+
+	#webcam {
+/*		height:100% !important;
+		width:100% !important;*/
+	}
+	</style>
 	<script type="text/javascript">
 	
 	function onload() {
@@ -32,6 +39,8 @@
 		    $.globalMessenger().post("Img WebSocket Open!");
 		  	};
 		  img.onmessage = function(e) {
+
+		  	$('#image').attr("src","data:image/png;base64,"+e.data);
 		  	// console.log(JSON.parse(e.data));
 		  	//"data:image/png;base64,"+
 		    // var imgdata = e.data;

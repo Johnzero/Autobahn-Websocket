@@ -91,7 +91,8 @@ def page_home():
 
 @app.route('/scriptcam.lic')
 def static_from_root():
-    return send_from_directory('/static/ScriptCam', request.path[1:])
+   return redirect('/static/ScriptCam/scriptcam.lic')
+   # return send_from_directory('/static/ScriptCam/', request.path[1:])
 
 if __name__ == "__main__":
 
